@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片切换</title>
+		<script src="jQuery.js"></script>
+		<style type="text/css">
+			*{
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			#pic_change{
+				width: 180px;
+				height: 150px;
+				margin: 0 auto;
+				position: relative;
+			}
+			img{
+				position: absolute;
+			}
+			#img1{
+				left: 0;
+				top: 0;
+			}
+			#img2{
+				left: 180px;
+				opacity: 0;
+			}
+			.p1{
+				position: absolute;
+				width: 100%;
+				background-color: pink;
+				height: 20px;
+				opacity: 0.8;
+				z-index: 99;
+				text-align: center;
+			}
+			.p2{
+				position: absolute;
+				width: 100%;
+				background-color: pink;
+				height: 20px;
+				opacity: 0.8;
+				z-index: 99;
+				text-align: center;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="pic_change">
+			<div id="img1">
+				<div class="p1">2013</div>
+				<img src="1.jpg"/>
+				<div class="p2">2013</div>
+			</div>
+			
+			<div id="img2">
+				<img src="2.jpg"/>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			
+			$('#pic_change').hover(function(){
+				
+				$('#img1').stop().animate({
+					'left':'-180px',
+					'display':'none'
+				},500)
+				
+				$('#img2').stop().animate({
+					opacity:1,
+					'left':'0'
+				},500)
+				
+				$('.p1').stop().animate({
+					'top':'-20px'
+				},200)
+				
+				$('#img1>.p2').stop().animate({
+					'display':'none',
+					'bottom':'-20px'
+					
+				},200)
+				
+			},function(){
+				
+				$('#img1').stop().animate({
+					'left':'0',
+					'display':'block'
+				},500)
+				
+				$('#img2').stop().animate({
+					opacity:0,
+					'left':'180px'
+				},500)
+				
+				$('.p1').stop().animate({
+					'top':'0'
+				},200)
+				
+				$('.p2').stop().animate({
+					'bottom':'0'
+				},200)
+				
+			})
+			
+		})
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
